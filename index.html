@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Photorealistic quantum diffraction simulator with real-time WebGL rendering">
+    <meta name="keywords" content="diffraction, quantum physics, WebGL, Three.js, simulation">
+    <meta name="author" content="Your Name">
+    <title>Quantum Diffraction Simulator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="canvas-container"></div>
+
+    <!-- Controls Panel -->
+    <div id="controls">
+        <div class="header">
+            <h1>⚛️ <span data-i18n="title">Diffraction Simulator</span></h1>
+            <button id="lang-toggle" class="icon-btn" title="Change language">
+                🌐 <span id="current-lang">EN</span>
+            </button>
+        </div>
+
+        <!-- Presets -->
+        <div class="presets">
+            <button class="preset-btn" data-preset="red">🔴 <span data-i18n="presetRed">Red Laser</span></button>
+            <button class="preset-btn" data-preset="green">🟢 <span data-i18n="presetGreen">Green Laser</span></button>
+            <button class="preset-btn" data-preset="blue">🔵 <span data-i18n="presetBlue">Blue Laser</span></button>
+            <button class="preset-btn" data-preset="white">⚪ <span data-i18n="presetWhite">White Light</span></button>
+        </div>
+
+        <!-- Pattern Type -->
+        <div class="control-group">
+            <label data-i18n="patternType">Diffraction Pattern</label>
+            <select id="pattern-type">
+                <option value="single" data-i18n="patternSingle">Single Slit</option>
+                <option value="double" selected data-i18n="patternDouble">Double Slit</option>
+                <option value="multiple" data-i18n="patternMultiple">Grating (N slits)</option>
+                <option value="circular" data-i18n="patternCircular">Circular Aperture</option>
+                <option value="cross" data-i18n="patternCross">Cross Aperture</option>
+                <option value="vertical" data-i18n="patternVertical">Vertical Slit</option>
+            </select>
+        </div>
+
+        <!-- Light Type -->
+        <div class="control-group">
+            <label data-i18n="lightType">Light Source</label>
+            <select id="light-type">
+                <option value="mono" selected data-i18n="lightMono">Monochromatic</option>
+                <option value="white" data-i18n="lightWhite">White Light</option>
+            </select>
+        </div>
+
+        <!-- Slit Width -->
+        <div class="control-group">
+            <label>
+                <span data-i18n="slitWidth">Slit Width (mm)</span>
+                <span class="value-display" id="slit-width-val">0.10</span>
+            </label>
+            <input type="range" id="slit-width" min="0.01" max="1.5" step="0.01" value="0.1">
+        </div>
+
+        <!-- Slit Distance -->
+        <div class="control-group">
+            <label>
+                <span data-i18n="slitDistance">Slit Separation (mm)</span>
+                <span class="value-display" id="slit-distance-val">0.50</span>
+            </label>
+            <input type="range" id="slit-distance" min="0.1" max="2" step="0.05" value="0.5">
+        </div>
+
+        <!-- Number of Slits -->
+        <div class="control-group" id="num-slits-group">
+            <label>
+                <span data-i18n="numSlits">Number of Slits</span>
+                <span class="value-display" id="num-slits-val">5</span>
+            </label>
+            <input type="range" id="num-slits" min="2" max="10" step="1" value="5">
+        </div>
+
+        <!-- Wavelength -->
+        <div class="control-group" id="wavelength-group">
+            <label>
+                <span data-i18n="wavelength">Wavelength (nm)</span>
+                <span class="value-display" id="wavelength-val">550</span>
+            </label>
+            <input type="range" id="wavelength" min="380" max="750" step="10" value="550" class="rainbow-slider">
+            <div class="wavelength-labels">
+                <span data-i18n="violet">Violet</span>
+                <span data-i18n="red">Red</span>
+            </div>
+        </div>
+
+        <!-- Bloom -->
+        <div class="control-group">
+            <label>
+                <span data-i18n="bloom">Bloom Intensity</span>
+                <span class="value-display" id="bloom-val">2.5</span>
+            </label>
+            <input type="range" id="bloom" min="1" max="5" step="0.1" value="2.5">
+        </div>
+
+        <!-- Reset Button -->
+        <button id="reset-btn" class="action-btn" data-i18n="reset">Reset to Defaults</button>
+    </div>
+
+    <!-- Color Indicator -->
+    <div id="color-indicator">
+        <div id="color-circle"></div>
+        <div>
+            <div class="color-label" data-i18n="currentColor">Current Color</div>
+            <div class="color-value"><span id="wavelength-display">550</span> nm</div>
+        </div>
+    </div>
+
+    <!-- Info Panel -->
+    <div id="info">
+        <button id="toggle-info" class="icon-btn">ℹ️</button>
+        <div id="info-content">
+            <h3>💡 <span data-i18n="infoTitle">Quantum Physics</span></h3>
+            <p data-i18n="infoText">
+                This simulator uses Fraunhofer diffraction equations to calculate
+                interference patterns in real-time via GLSL shaders.
+            </p>
+            <div class="tech-stack">
+                <span data-i18n="infoTech">GPU Calculations • WebGL • Three.js</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Keyboard Shortcuts Help -->
+    <div id="shortcuts-hint">
+        <span data-i18n="shortcutsHint">Press 'H' for keyboard shortcuts</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/shaders.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
