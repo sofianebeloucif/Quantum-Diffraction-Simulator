@@ -420,5 +420,75 @@ function onWindowResize() {
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
 } else {
+    // Screenshot functionality
+    function takeScreenshot() {
+        // Hide UI elements
+        document.body.classList.add('hide-ui');
+
+        // Apply dark room effect
+        const originalBg = scene.background;
+        scene.background = new THREE.Color(0x000000);
+
+        // Wait for next frame to ensure UI is hidden
+        setTimeout(() => {
+            try {
+                // Render one frame
+                renderer.render(scene, camera);
+
+                // Get canvas data
+                const canvas = renderer.domElement;
+                const dataURL = canvas.toDataURL('image/png');
+
+                // Create download link
+                const link = document.createElement('a');
+                const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, -5);
+                link.download = `diffraction-${params.patternType}-${params.wavelength}nm-${timestamp}.png`;
+                link.href = dataURL;
+                link.click();
+
+                // Flash effect
+                const flash = document.createElement('div');
+                flash.className = 'screenshot-flash';
+                document.body.appendChild(flash);
+                setTimeout(() => flash.remove(), 500);
+
+                // Show notification
+                showNotification(i18n.get('screenshotSaved'));
+
+            } catch (error) {
+                console.error('Screenshot error:', error);
+                showNotification(i18n.get('screenshotError'));
+            } finally {
+                // Restore UI and background
+                setTimeout(() => {
+                    document.body.classList.remove('hide-ui');
+                    scene.background = originalBg;
+                }, 100);
+            }
+        }, 50);
+    }
+
+    function showNotification(message) {
+        const notification = document.createElement('div');
+        notification.className = 'screenshot-notification';
+        notification.textContent = message;
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.style.animation = 'slideUp 0.3s ease-out reverse';
+            setTimeout(() => notification.remove(), 300);
+        }, 2000);
+    }
+
+// Toggle dark room mode
+    function toggleDarkRoomMode() {
+        document.body.classList.toggle('dark-room-mode');
+
+        if (document.body.classList.contains('dark-room-mode')) {
+            scene.background = new THREE.Color(0x000000);
+        } else {
+            scene.background = new THREE.Color(0x0a0a0a);
+        }
+    }
     init();
 }
