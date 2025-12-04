@@ -13,10 +13,8 @@ A photorealistic real-time diffraction pattern simulator using WebGL shaders and
 ## ✨ Features
 
 - **Multiple Diffraction Patterns**
-  - Single slit diffraction
   - Double slit (Young's experiment)
   - Multiple slits (diffraction grating)
-  - Circular aperture
   - Cross aperture
   - Vertical slit
 
@@ -69,7 +67,7 @@ php -S localhost:8000
 
 ## 🎮 Usage
 
-1. **Select Pattern Type**: Choose from single slit, double slit, grating, circular, cross, or vertical
+1. **Select Pattern Type**: Choose from double slit, grating, cross, or vertical
 2. **Choose Light Source**: Monochromatic or white light
 3. **Adjust Parameters**: Use sliders to modify slit dimensions and wavelength
 4. **Experiment**: See real-time changes to the diffraction pattern
@@ -112,14 +110,11 @@ I(θ) = I₀ × (sin(β) / β)² × (sin(Nδ) / sin(δ))²
 See [Technical Documentation](docs/TECHNICAL.md) for detailed explanations.
 
 ## 🎨 Screenshots
+| Double Slit | Grating | Cross |
+|-------------|---------|-------|
+| ![Double](screenshots/diffraction-double.png) | ![Grating](screenshots/diffraction-multiple.png) | ![Cross](screenshots/diffraction-cross.png) |
 
-| Single Slit | Double Slit | Grating |
-|-------------|-------------|---------|
-| ![Single](assets/screenshots/single.png) | ![Double](assets/screenshots/double.png) | ![Grating](assets/screenshots/grating.png) |
 
-| White Light | Circular | Cross |
-|-------------|----------|-------|
-| ![White](assets/screenshots/white.png) | ![Circular](assets/screenshots/circular.png) | ![Cross](assets/screenshots/cross.png) |
 
 ## 🤝 Contributing
 
@@ -137,10 +132,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👤 Author
 
-**Your Name**
-- Portfolio: [yourwebsite.com](#)
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your Name](https://linkedin.com/in/yourname)
+**Sofiane Beloucif**
+- Portfolio: [sofianebeloucif.com](#)
+- GitHub: [@sofianebeloucif](https://github.com/sofianebeloucif)
+
 
 ## 🙏 Acknowledgments
 
