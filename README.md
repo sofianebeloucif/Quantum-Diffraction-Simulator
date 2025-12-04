@@ -4,37 +4,38 @@
 [![Three.js](https://img.shields.io/badge/Three.js-r128-blue.svg)](https://threejs.org/)
 [![WebGL](https://img.shields.io/badge/WebGL-2.0-green.svg)](https://www.khronos.org/webgl/)
 
-A photorealistic real-time diffraction pattern simulator using WebGL shaders and Three.js. Visualize quantum wave interference with stunning visual effects.
+A photorealistic real-time diffraction pattern simulator using WebGL shaders and Three.js. Visualize quantum wave interference with visual effects.
 
 [🇫🇷 Version française](README.fr.md) | [📺 Live Demo](#) | [📖 Technical Documentation](docs/TECHNICAL.md)
 
-![Diffraction Simulator Screenshot](assets/screenshots/demo.png)
+
 
 ## ✨ Features
 
-- **Multiple Diffraction Patterns**
-  - Double slit (Young's experiment)
-  - Multiple slits (diffraction grating)
-  - Cross aperture
-  - Vertical slit
+### 🌀 Diffraction Patterns
+- **Double slit** (Young’s experiment)  
+- **Multiple slits** (diffraction grating)  
+- **Cross aperture**  
+- **Vertical slit**
 
-- **Light Sources**
-  - Monochromatic light (380-750 nm)
-  - White light (polychromatic)
-  - Color presets (Red/Green/Blue lasers)
+### 🌈 Light Sources
+- **Monochromatic light** (380–750 nm)  
+- **White light** (polychromatic)  
+- **Laser presets**: Red / Green / Blue  
 
-- **Real-time Physics**
-  - Fraunhofer diffraction equations
-  - GPU-accelerated calculations via GLSL shaders
-  - Accurate wavelength-to-RGB conversion
-  - Photorealistic bloom effects
+### ⚡ Real-Time Physics
+- Fraunhofer diffraction equations  
+- **GPU-accelerated** GLSL shader computations  
+- Accurate **wavelength → RGB** conversion  
+- Photorealistic **bloom effects**
 
-- **Interactive Controls**
-  - Adjustable slit width (0.01-0.5 mm)
-  - Variable slit separation (0.1-2 mm)
-  - Number of slits (2-10)
-  - Bloom intensity control
-  - Language switcher (EN/FR)
+### 🎛️ Interactive Controls
+- Adjustable **slit width** (0.01–0.5 mm)  
+- Variable **slit separation** (0.1–2 mm)  
+- Configurable **number of slits** (2–10)  
+- **Bloom intensity** slider  
+- **Language switcher** (EN / FR)
+
 
 ## 🚀 Quick Start
 
