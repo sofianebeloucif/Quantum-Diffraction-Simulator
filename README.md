@@ -6,8 +6,7 @@
 
 A photorealistic real-time diffraction pattern simulator using WebGL shaders and Three.js. Visualize quantum wave interference with visual effects.
 
-[🇫🇷 Version française](README.fr.md) | [📺 Live Demo](#) | [📖 Technical Documentation](docs/TECHNICAL.md)
-
+[📺 Live Demo](https://sofianebeloucif.github.io/Quantum-Diffraction-Simulator/) | [📖 Technical Documentation](docs/TECHNICAL.md)
 
 
 ## ✨ Features
@@ -40,7 +39,7 @@ A photorealistic real-time diffraction pattern simulator using WebGL shaders and
 ## 🚀 Quick Start
 
 ### Online Demo
-Visit the [live demo](#) to try it instantly in your browser.
+Visit the [live demo](https://sofianebeloucif.github.io/Quantum-Diffraction-Simulator/) to try it instantly in your browser.
 
 ### Local Installation
 
@@ -148,7 +147,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - [ ] Fresnel diffraction mode
 - [ ] 3D visualization of wave propagation
-- [ ] Pattern export (PNG/SVG)
+- [x] Pattern export (PNG)
 - [ ] Mobile touch controls
 - [ ] VR mode support
 - [ ] Multiple light sources
