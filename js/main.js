@@ -145,7 +145,7 @@ function setupControls() {
         red: { wavelength: 650, slitWidth: 0.08, slitDistance: 0.4, lightType: 'mono' },
         green: { wavelength: 532, slitWidth: 0.1, slitDistance: 0.5, lightType: 'mono' },
         blue: { wavelength: 450, slitWidth: 0.12, slitDistance: 0.6, lightType: 'mono' },
-        white: { wavelength: 550, slitWidth: 0.1, slitDistance: 0.5, lightType: 'white' }
+        white: { wavelength: "~400–700", slitWidth: 0.1, slitDistance: 0.5, lightType: 'white' }
     };
 
     document.querySelectorAll('.preset-btn').forEach(btn => {
@@ -448,8 +448,11 @@ function setupKeyboardShortcuts() {
 function showShortcutsModal() {
     // Remove existing modal if any
     const existingModal = document.querySelector('.modal-overlay');
-    if (existingModal) {
+    const existingContent = document.getElementById('shortcuts-modal');
+
+    if (existingContent) {
         existingModal.remove();
+        existingContent.remove();
         return;
     }
 
@@ -468,7 +471,6 @@ function showShortcutsModal() {
         { key: '1', desc: i18n.get('shortcutPattern1') },
         { key: '2', desc: i18n.get('shortcutPattern2') },
         { key: '3', desc: i18n.get('shortcutPattern3') },
-        { key: '4', desc: i18n.get('shortcutPattern4') },
         { key: '5', desc: i18n.get('shortcutPattern5') },
         { key: '6', desc: i18n.get('shortcutPattern6') },
         { key: 'H', desc: i18n.get('shortcutClose') }
@@ -487,7 +489,10 @@ function showShortcutsModal() {
 
     modal.innerHTML = html;
 
-    overlay.addEventListener('click', () => overlay.remove());
+    overlay.addEventListener('click', () => {
+        overlay.remove();
+        modal.remove();
+    });
 
     document.body.appendChild(overlay);
     document.body.appendChild(modal);
