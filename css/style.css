@@ -443,8 +443,14 @@ input[type="range"]::-moz-range-thumb:active {
     border: 1px solid var(--border-color);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
     z-index: 1000;
-    min-width: 400px;
+
+    width: 90vw;          /* Responsive */
+    max-width: 500px;     /* Beau sur desktop */
+    max-height: 80vh;     /* Empêche de dépasser en hauteur */
+    overflow-y: auto;     /* Scroll interne si besoin */
+    box-sizing: border-box;
 }
+
 
 #shortcuts-modal h2 {
     font-size: 20px;
@@ -458,7 +464,12 @@ input[type="range"]::-moz-range-thumb:active {
 .shortcut-list {
     display: grid;
     gap: 12px;
+
+    max-height: 60vh;     /* Limite la hauteur de la liste */
+    overflow-y: auto;     /* Scroll uniquement sur la liste */
+    padding-right: 5px;   /* évite que le scroll-bar coupe le contenu */
 }
+
 
 .shortcut-item {
     display: flex;
